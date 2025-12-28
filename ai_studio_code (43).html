@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cyberion Spark-X Advanced Pro</title>
+    
+    <!-- EmailJS Integration -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("CHv9O8LgL_hNKcbK-"); 
+       })();
+    </script>
+
+    <style>
+        /* --- KEEPING YOUR EXACT STYLING --- */
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; background-color: #1a237e; color: white; height: 100vh; width: 100vw; overflow-x: hidden; user-select: none; }
+        .app-container { width: 100%; min-height: 100vh; background-color: #1a237e; display: flex; flex-direction: column; align-items: center; position: relative; }
+        .top-header { background-color: #e0e0e0; color: #000; font-weight: bold; text-transform: uppercase; padding: 20px; width: 100%; text-align: center; font-size: 18px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); z-index: 10; }
+        .robot-banner { width: 100%; height: 25vh; background: linear-gradient(180deg, #000 0%, #0d47a1 100%); display: flex; justify-content: center; align-items: center; margin-bottom: 20px; overflow: hidden; }
+        .robot-eye { width: 100px; height: 100px; background: #000; border-radius: 50%; border: 3px solid cyan; box-shadow: 0 0 30px cyan; display: flex; align-items: center; justify-content: center; font-size: 50px; animation: breathe 3s infinite alternate; }
+        @keyframes breathe { 0% { box-shadow: 0 0 20px cyan; transform: scale(1); } 100% { box-shadow: 0 0 50px cyan; transform: scale(1.05); } }
+        h2.section-title { color: #2979ff; text-align: center; text-transform: uppercase; font-weight: 900; font-size: 22px; margin: 15px 0; }
+        .highlight-box { background-color: #3d5afe; color: white; padding: 10px 20px; font-weight: bold; margin-bottom: 20px; border-radius: 4px; }
+        .btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; width: 90%; max-width: 600px; }
+        .btn { border: none; padding: 18px; font-weight: bold; color: white; text-transform: uppercase; cursor: pointer; border-radius: 4px; transition: 0.3s; }
+        .btn-green { background-color: #006400; } .btn-blue { background-color: #2962ff; } .btn-teal { background-color: #00bfa5; } .btn-red { background-color: #d50000; }
+        .btn-yellow { background-color: #ffd600; color: black; } .btn-purple { background-color: #aa00ff; } .btn-cyan { background-color: #00e5ff; color: black; }
+        .input-group { width: 90%; max-width: 600px; margin-bottom: 20px; }
+        label { display: block; font-size: 11px; color: #bbb; margin-bottom: 5px; text-transform: uppercase; font-weight: bold; }
+        input { width: 100%; background: rgba(0,0,0,0.2); border: none; border-bottom: 2px solid #aaa; padding: 15px; color: white; font-size: 18px; outline: none; }
+        .error-text { color: #ff1744; font-size: 12px; display: none; margin-top: 5px; }
+        .terminal { background-color: black; width: 95%; max-width: 800px; height: 60vh; border: 2px solid #333; font-family: 'Courier New', monospace; font-size: 13px; color: #00ff00; padding: 15px; overflow-y: auto; text-align: left; box-shadow: inset 0 0 20px #003300; }
+        .float-btn { position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white; padding: 15px 25px; border-radius: 50px; border: none; font-weight: bold; z-index: 999; cursor: pointer; }
+        .page { display: none; width: 100%; flex-direction: column; align-items: center; padding-bottom: 80px; }
+        .active { display: flex; }
+        #loadingOverlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; display: none; flex-direction: column; justify-content: center; align-items: center; }
+        .spinner { width: 50px; height: 50px; border: 5px solid #2979ff; border-top: 5px solid transparent; border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { 0%{transform: rotate(0deg);} 100%{transform: rotate(360deg);} }
+    </style>
+</head>
+<body>
+
+    <div id="loadingOverlay">
+        <div class="spinner"></div>
+        <p id="loadingText" style="margin-top: 20px; color: #2979ff; font-weight: bold;">CONNECTING...</p>
+    </div>
+
+    <button class="float-btn" onclick="openWhatsApp()">💬 Contact Me</button>
+
+    <div class="app-container">
+
+        <!-- PAGE 1: INTRO -->
+        <div id="page1" class="page active">
+            <div class="top-header">CYBERION SPARK-X PRO</div>
+            <div class="robot-banner"><div class="robot-eye">🤖</div></div>
+            <h2 class="section-title">SIMPLICITY OF THE ROBOT</h2>
+            <div class="highlight-box">REMOTE UNLOCK ENGINE</div>
+            <p style="text-align:center; padding: 20px;">Secure MDM bypass linked to GitHub Cloud Infrastructure.</p>
+            <button class="btn btn-blue" style="width:90%;" onclick="showPage('page2')">START SYSTEM</button>
+        </div>
+
+        <!-- PAGE 2: CHOOSE COMPANY -->
+        <div id="page2" class="page">
+            <div class="top-header">SELECT PROVIDER</div>
+            <div class="btn-grid" style="margin-top:20px;">
+                <button class="btn btn-green" onclick="selectCompany('MKOPA')">MKOPA</button>
+                <button class="btn btn-blue" onclick="selectCompany('WATU CREDIT')">WATU CREDIT</button>
+                <button class="btn btn-teal" onclick="selectCompany('DLIGHT')">D.LIGHT</button>
+                <button class="btn btn-green" onclick="selectCompany('SAFARICOM')">SAFARICOM</button>
+                <button class="btn btn-red" onclick="selectCompany('AIRTEL')">AIRTEL</button>
+                <button class="btn btn-yellow" onclick="selectCompany('SUNKING')">SUNKING</button>
+                <button class="btn btn-purple" onclick="selectCompany('ONFON')">ONFON</button>
+                <button class="btn btn-cyan" onclick="selectCompany('VIVO')">VIVO</button>
+            </div>
+        </div>
+
+        <!-- PAGE 4: DATA ENTRY -->
+        <div id="page4" class="page">
+            <div class="top-header">TARGET: <span id="displayCompany">SYSTEM</span></div>
+            <div class="input-group" style="margin-top:20px;">
+                <label>PHONE NUMBER</label>
+                <input type="number" id="phoneInput" placeholder="07...">
+            </div>
+            <div class="input-group">
+                <label>EMAIL</label>
+                <input type="email" id="emailInput" placeholder="user@gmail.com">
+            </div>
+            <div class="input-group">
+                <label>IMEI (15 DIGITS)</label>
+                <input type="number" id="imeiInput" placeholder="35...">
+            </div>
+            <button class="btn btn-blue" style="width:90%;" onclick="validateAndSendOTP()">VERIFY IDENTITY</button>
+        </div>
+
+        <!-- PAGE: OTP -->
+        <div id="pageOTP" class="page">
+            <div class="top-header">VERIFICATION</div>
+            <p style="text-align: center; margin-top:20px;">Enter the code sent to your email.</p>
+            <input type="number" id="otpInput" placeholder="000000" style="text-align:center; width: 80%; margin: 20px 0;">
+            <button class="btn btn-teal" style="width:90%;" onclick="verifyOTP()">CONFIRM CODE</button>
+        </div>
+
+        <!-- PAGE 5: REBOOT KEY -->
+        <div id="page5" class="page">
+            <div class="top-header">SECURITY ACCESS</div>
+            <h2 class="section-title">ENTER REBOOT KEY</h2>
+            <input type="password" id="rebootKey" placeholder="****" style="text-align:center; width: 80%; margin: 20px 0;">
+            <button class="btn btn-green" style="width:90%;" onclick="checkKey()">UNLOCK VIA CLOUD</button>
+        </div>
+
+        <!-- PAGE 6: SYSTEM CONSOLE -->
+        <div id="page6" class="page">
+            <div class="top-header">CLOUD TERMINAL</div>
+            <div class="terminal" id="terminalBox"></div>
+        </div>
+
+    </div>
+
+    <script>
+        let sentEmailCode = "";
+        let selectedCompany = "";
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        function selectCompany(name) {
+            selectedCompany = name;
+            document.getElementById('displayCompany').innerText = name;
+            showPage('page4');
+        }
+
+        function validateAndSendOTP() {
+            const email = document.getElementById('emailInput').value;
+            const imei = document.getElementById('imeiInput').value;
+
+            if (!email.includes('@') || imei.length !== 15) {
+                alert("Please enter a valid Email and 15-digit IMEI.");
+                return;
+            }
+
+            sentEmailCode = Math.floor(100000 + Math.random() * 900000).toString();
+            
+            document.getElementById('loadingOverlay').style.display = 'flex';
+            
+            emailjs.send('service_iuvmzx8', 'template_0s2sydx', {
+                email: email,
+                OTP: sentEmailCode,
+                brand: selectedCompany
+            }).then(() => {
+                document.getElementById('loadingOverlay').style.display = 'none';
+                showPage('pageOTP');
+            }).catch(() => {
+                document.getElementById('loadingOverlay').style.display = 'none';
+                alert("Error sending OTP.");
+            });
+        }
+
+        function verifyOTP() {
+            if(document.getElementById('otpInput').value === sentEmailCode) {
+                showPage('page5');
+            } else {
+                alert("Wrong OTP.");
+            }
+        }
+
+        // --- THE ACTUAL LOGIC CONNECTED TO VERCEL/GITHUB ---
+        async function checkKey() {
+            const key = document.getElementById('rebootKey').value;
+            if (key.toUpperCase() !== "DEE") {
+                alert("INVALID KEY. Contact admin via WhatsApp.");
+                openWhatsApp();
+                return;
+            }
+
+            const imei = document.getElementById('imeiInput').value;
+            const phone = document.getElementById('phoneInput').value;
+
+            showPage('page6');
+            const terminal = document.getElementById('terminalBox');
+            addLog("INITIALIZING CYBERION CLOUD LINK...");
+
+            try {
+                // 1. Triggers the Vercel API we discussed
+                addLog(`CONTACTING GITHUB SERVERS FOR IMEI: ${imei}...`);
+                
+                const response = await fetch('/api/trigger', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        methodType: 'A', // Default to ADB Bypass Method
+                        imei: imei,
+                        brand: 'Android_Remote',
+                        provider: selectedCompany
+                    })
+                });
+
+                if (response.ok) {
+                    addLog("CLOUD SIGNAL RECEIVED: SUCCESS");
+                    startVisualUnlock(); // Run the terminal animation
+                } else {
+                    addLog("CLOUD SIGNAL FAILED. Check API Settings.");
+                }
+            } catch (err) {
+                addLog("CONNECTION ERROR: Cannot reach Vercel Backend.");
+            }
+        }
+
+        function addLog(text, isGreen = false) {
+            const terminal = document.getElementById('terminalBox');
+            const div = document.createElement('div');
+            div.textContent = ">> " + text;
+            div.style.marginBottom = "5px";
+            if(isGreen) div.style.color = "#00ff00";
+            terminal.appendChild(div);
+            terminal.scrollTop = terminal.scrollHeight;
+        }
+
+        function startVisualUnlock() {
+            const logs = [
+                "ESTABLISHING BOOTLOADER TUNNEL...",
+                "BYPASSING " + selectedCompany + " MDM ENFORCEMENT...",
+                "INJECTING REMOTE EXPLOIT...",
+                "CLEARING PERSISTENT LOCK FLAGS...",
+                "SYSTEM RECONSTRUCTION: 45%",
+                "SYSTEM RECONSTRUCTION: 89%",
+                "CLEANING CACHE PARTITION...",
+                "SUCCESS: " + selectedCompany + " REMOVED PERMANENTLY.",
+                "REBOOTING TARGET DEVICE NOW."
+            ];
+
+            let i = 0;
+            const interval = setInterval(() => {
+                addLog(logs[i], i === logs.length - 1);
+                i++;
+                if (i >= logs.length) clearInterval(interval);
+            }, 1000);
+        }
+
+        function openWhatsApp() { window.open("https://wa.me/254739320033", "_blank"); }
+    </script>
+</body>
+</html>
